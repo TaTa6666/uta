@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>US Cities</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            text-align: left;
+            white-space: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: 1px solid #ddd;
+            padding: 8px;
+            max-width: 200px; /* 设置最大宽度，根据实际情况调整 */
+            word-break: break-all; /* 强制换行 */
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<table id="cities-table">
+    <thead>
+    <tr>
+        <th>city</th>
+        <th>lat</th>
+        <th>lng</th>
+        <th>country</th>
+        <th>state</th>
+        <th>population</th>
+    </tr>
+
+    <tr>
+        <td>{{ city }}</td>
+        <td>{{ lat }}</td>
+        <td>{{ lng }}</td>
+        <td>{{ country }}</td>
+        <td>{{ state }}</td>
+        <td>{{ population }}</td>
+    </tr>
+
+    </thead>
+
+</table>
+</body>
+</html>

@@ -1,60 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Assignment</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>MyAssignment</title>
     <style>
-        /* 添加一些基本的样式 */
-        .header {
-            text-align: center;
-            padding: 20px;
-        }
-        table {
-            width: 100%;
-            text-align: left;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      #reviews-table a {
+          text-decoration: underline;
+          color: blue;
+      }
+
+      th, td {
+          text-align: left;
+          white-space: normal;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          border: 1px solid #ddd;
+          padding: 8px;
+          max-width: 200px; /* 设置最大宽度，根据实际情况调整 */
+          word-break: break-all; /* 强制换行 */
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
     </style>
+    <script src="{{ url_for('static', filename='js1.js') }}"></script>
 </head>
 <body>
-    <div class="header">
-        <h1 id="name">Tuo Wu</h1>
-        <h2 id="id">txw75981</h2>
-        <img id="photo" src="../static/wutuo.jpg" alt="我的照片" width="200px" />
-    </div>
-    <table id="data-table">
-        <thead>
-            <tr>
-                <th>score</th>
-                <th>city</th>
-                <th>title</th>
-                <th>review</th>
-                <th>score image</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- 数据将在这里填充 -->
-        </tbody>
-    </table>
+<h2>Wu Tuo</h2>
+<h1>txw75981</h1>
+<img src="../static/wutuo.jpg" alt="my picture" width="200px">
 
-    <script>
-        $.get('/api/mydata', function(data) {
-    var tableBody = $('#data-table tbody');
-    data.forEach(function(item) {
-        var row = '<tr>';
-        row += '<td>' + item.score + '</td>';
-        row += '<td><a href="/city/' + encodeURIComponent(item.city) + '" target="_blank">' + item.city + '</a></td>';
-        row += '<td>' + item.title + '</td>';
-        row += '<td>' + item.review + '</td>';
-        row += '<td><img src="../static/score-' + item.score + '.jpg" alt="score image" width="50px"></td>';
-        row += '</tr>';
-        tableBody.append(row);
-    });
-});
-    </script>
+<table id="reviews-table">
+    <thead>
+        <tr>
+            <th>score</th>
+            <th>city</th>
+            <th>title</th>
+            <th>review</th>
+            <th>scoreImage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--used to add amazon-reviews data-->
+    </tbody>
+</table>
 </body>
+<script src="../static/js1.js"></script>
 </html>
